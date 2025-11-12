@@ -1,0 +1,40 @@
+Smishing: SMS-Based Social Engineering Attacks
+
+Smishing, a portmanteau of "SMS" and "phishing," is a form of social engineering attack that uses text messages (SMS) to deceive victims into revealing sensitive information, clicking malicious links, or downloading malware. As mobile device usage has increased, smishing has become an increasingly common and effective attack vector for cybercriminals.
+
+How Smishing Works:
+Attackers send text messages that appear to come from trusted sources such as banks, delivery services, government agencies, or popular online platforms. These messages are designed to trigger an emotional response—often fear, curiosity, or urgency—that prompts the recipient to take immediate action without careful consideration.
+
+Common Smishing Scenarios:
+1. Fake Package Delivery Notifications: Messages claiming you have a package waiting and need to click a link to schedule delivery or pay a small fee. These often impersonate services like FedEx, UPS, USPS, or Amazon.
+
+2. Banking Alerts: Fraudulent messages claiming suspicious activity on your account, asking you to verify your identity or confirm a transaction by clicking a link or calling a phone number.
+
+3. Prize or Gift Scams: Messages claiming you've won a prize, gift card, or contest and need to provide personal information or pay a small processing fee to claim it.
+
+4. Tax or Government Notices: Fake messages from the IRS, Social Security Administration, or other government agencies claiming you owe money or are eligible for a refund.
+
+5. COVID-19 Related Scams: Messages offering vaccine appointments, testing kits, or financial relief that require personal information or payment.
+
+Red Flags in Smishing Messages:
+- Unexpected messages from services you don't use
+- Urgent language creating pressure to act quickly
+- Generic greetings that don't use your name
+- Shortened URLs (bit.ly, tinyurl) that hide the actual destination
+- Requests for sensitive information via text
+- Phone numbers that don't match the official company number
+- Poor grammar or spelling errors
+- Threats of account closure or legal action
+
+Protection Best Practices:
+- Never click links in unexpected text messages
+- Independently verify the message by contacting the organization through official channels
+- Don't call phone numbers provided in suspicious texts
+- Enable spam filtering on your mobile device
+- Be cautious with shortened URLs—use URL expander tools if needed
+- Don't respond to suspicious messages (even to "unsubscribe")
+- Report smishing attempts to your mobile carrier (forward to 7726/SPAM in the US)
+- Keep your mobile operating system and apps updated
+- Use mobile security software
+
+Important: Legitimate companies and government agencies will never request sensitive information like passwords, Social Security numbers, or credit card details via text message. If you receive such a request, it's almost certainly a scam. Always verify through official channels before taking any action.

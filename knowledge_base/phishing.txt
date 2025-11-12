@@ -1,0 +1,30 @@
+Phishing: A Comprehensive Overview
+
+Phishing is a type of social engineering attack where cybercriminals attempt to trick individuals into revealing sensitive information such as passwords, credit card numbers, or other personal data. These attacks typically occur through email, but can also happen via text messages (SMS phishing or "smishing"), phone calls (vishing), or malicious websites.
+
+Common Phishing Techniques:
+1. Email Phishing: Attackers send fraudulent emails that appear to come from legitimate organizations like banks, online services, or government agencies. These emails often create a sense of urgency, claiming there's a problem with your account or that immediate action is required.
+
+2. Spear Phishing: A more targeted form of phishing where attackers customize their messages for specific individuals or organizations, often using information gathered from social media or other sources to make the attack more convincing.
+
+3. Clone Phishing: Attackers create a nearly identical copy of a legitimate email that the victim previously received, replacing legitimate links or attachments with malicious ones.
+
+Red Flags to Watch For:
+- Urgent or threatening language demanding immediate action
+- Requests for sensitive information like passwords or credit card numbers
+- Suspicious sender email addresses that don't match the official domain
+- Generic greetings like "Dear Customer" instead of your name
+- Spelling and grammatical errors
+- Mismatched URLs (hover over links to see the actual destination)
+- Unexpected attachments, especially executable files (.exe, .zip, .scr)
+
+Protection Strategies:
+- Verify the sender's identity through a separate communication channel
+- Never click on suspicious links or download unexpected attachments
+- Enable multi-factor authentication (MFA) on all accounts
+- Keep software and browsers updated with the latest security patches
+- Use email filters and anti-phishing tools
+- Report phishing attempts to your IT department or the impersonated organization
+- Trust your instincts - if something feels off, it probably is
+
+Remember: Legitimate organizations will never ask you to provide sensitive information via email or text message. When in doubt, contact the organization directly using official contact information from their website, not the information provided in the suspicious message.

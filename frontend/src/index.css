@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles */
+body {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Email content styling for realistic email rendering */
+.email-content {
+  line-height: 1.6;
+}
+
+.email-content p {
+  margin-bottom: 1rem;
+}
+
+.email-content a {
+  color: #60a5fa;
+  text-decoration: underline;
+}
+
+.email-content a:hover {
+  color: #93c5fd;
+}
+
+.email-content strong {
+  font-weight: 600;
+  color: #f3f4f6;
+}
+
+.email-content ul, .email-content ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.email-content li {
+  margin-bottom: 0.5rem;
+}

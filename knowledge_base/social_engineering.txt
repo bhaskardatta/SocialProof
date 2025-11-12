@@ -1,0 +1,30 @@
+Social Engineering: The Human Element in Cybersecurity
+
+Social engineering is the art of manipulating people into divulging confidential information or performing actions that compromise security. Unlike technical hacking methods that exploit software vulnerabilities, social engineering exploits human psychology, trust, and natural tendencies to help others or comply with authority.
+
+Core Principles Exploited by Social Engineers:
+1. Trust: Humans naturally trust others, especially those who appear professional or authoritative
+2. Urgency: Creating time pressure prevents careful consideration and rational decision-making
+3. Fear: Threatening negative consequences (account closure, legal action, data loss)
+4. Greed: Offering rewards, prizes, or financial gains
+5. Curiosity: Using intriguing subjects to bait clicks
+6. Authority: Impersonating figures of authority (IT support, executives, law enforcement)
+7. Scarcity: Creating artificial scarcity to pressure immediate action
+
+Common Social Engineering Techniques:
+- Pretexting: Creating a fabricated scenario to extract information
+- Baiting: Offering something enticing (free software, USB drives) that contains malware
+- Quid Pro Quo: Offering a service in exchange for information or access
+- Tailgating: Following authorized personnel into restricted areas
+- Impersonation: Posing as someone with legitimate access or authority
+
+Defense Strategies:
+- Verify identities through independent channels before sharing information
+- Be skeptical of unsolicited requests, especially those creating urgency
+- Follow established security protocols regardless of pressure
+- Think before you click—hover over links to verify destinations
+- Report suspicious requests to your security team
+- Participate in security awareness training
+- Remember: It's okay to say no or ask for verification
+
+The most effective defense against social engineering is awareness. Understanding these tactics makes you less likely to fall victim to them. Always trust your instincts—if something feels wrong, it probably is.
