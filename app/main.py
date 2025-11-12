@@ -16,7 +16,7 @@ from app.database import async_engine, get_db
 
 # Import AI core for Part 2 functionality
 try:
-    from app import ai_core_simple as ai_core
+    from app import ai_core_advanced as ai_core
     AI_AVAILABLE = True
 except ImportError as e:
     print(f"⚠️  AI features not available: {e}")
@@ -433,26 +433,31 @@ async def generate_scenario(
         )
 
     try:
-        # Generate scenario content using AI
-        content = ai_core.generate_scenario_content(
+        # Generate scenario using advanced AI with variety
+        result = ai_core.generate_diverse_scenario(
             scenario_type=request.scenario_type,
-            difficulty=request.difficulty
+            difficulty=request.difficulty,
+            category=None  # Auto-select for variety
         )
 
-        # Map difficulty label to numerical level
+        # Map difficulty label to numerical level (now with 5 levels)
         difficulty_mapping = {
-            "easy": 2,
+            "beginner": 1,
+            "easy": 3,
             "medium": 5,
-            "hard": 8
+            "hard": 7,
+            "expert": 9
         }
 
         # Create AI result dict for database
         ai_result = {
-            "content": content,
+            "content": result["content"],
             "difficulty_level": difficulty_mapping.get(request.difficulty.lower(), 5),
             "difficulty_label": request.difficulty,
             "provider": "groq",
-            "scenario_type": request.scenario_type
+            "scenario_type": request.scenario_type,
+            "category": result.get("category", "general"),
+            "red_flags_count": result.get("red_flags_count", 3)
         }
 
         # Save scenario to database

@@ -148,7 +148,7 @@ def get_llm_client(temperature: float = 0.7):
         raise ValueError(f"Unsupported LLM provider: {LLM_PROVIDER}")
 
 
-def generate_phishing_scenario(difficulty: str = "medium") -> Dict[str, Any]:
+def generate_advanced_scenario(scenario_type: str, difficulty: str, category: str = None) -> Dict[str, Any]:
     """
     Generate a realistic phishing email scenario using AI
     
