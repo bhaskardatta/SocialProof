@@ -17,6 +17,7 @@ from app.database import async_engine, get_db
 # Import AI core for Part 2 functionality
 try:
     from app import ai_core_advanced as ai_core
+
     AI_AVAILABLE = True
 except ImportError as e:
     print(f"⚠️  AI features not available: {e}")
@@ -57,8 +58,10 @@ async def startup_event():
         try:
             print("🤖 Initializing AI systems...")
             status = ai_core.get_provider_status()
-            if status['status'] == 'active':
-                print(f"✅ AI systems ready! Provider: {status['provider']}, Model: {status.get('model', 'default')}")
+            if status["status"] == "active":
+                print(
+                    f"✅ AI systems ready! Provider: {status['provider']}, Model: {status.get('model', 'default')}"
+                )
             else:
                 print(f"⚠️  AI provider status: {status}")
         except Exception as e:
@@ -437,7 +440,7 @@ async def generate_scenario(
         result = ai_core.generate_diverse_scenario(
             scenario_type=request.scenario_type,
             difficulty=request.difficulty,
-            category=None  # Auto-select for variety
+            category=None,  # Auto-select for variety
         )
 
         # Map difficulty label to numerical level (now with 5 levels)
@@ -446,7 +449,7 @@ async def generate_scenario(
             "easy": 3,
             "medium": 5,
             "hard": 7,
-            "expert": 9
+            "expert": 9,
         }
 
         # Create AI result dict for database
@@ -457,7 +460,7 @@ async def generate_scenario(
             "provider": "groq",
             "scenario_type": request.scenario_type,
             "category": result.get("category", "general"),
-            "red_flags_count": result.get("red_flags_count", 3)
+            "red_flags_count": result.get("red_flags_count", 3),
         }
 
         # Save scenario to database

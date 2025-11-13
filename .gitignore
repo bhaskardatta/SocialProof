@@ -90,3 +90,4 @@ site/
 *.bak
 *.backup
 *~
+*.log

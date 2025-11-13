@@ -1,40 +1,78 @@
-# 🛡️ SocialProof - AI Cybersecurity Training Platform
+# SocialProof - Cybersecurity Training Platform# 🛡️ SocialProof - AI Cybersecurity Training Platform
 
-An interactive cybersecurity training platform powered by AI that helps users identify and defend against phishing, smishing, and social engineering attacks through realistic simulations.
 
-![Python](https://img.shields.io/badge/python-3.10+-blue.svg)
+
+Professional, AI-powered platform for learning to identify phishing and smishing attacks. Suitable for all ages and skill levels.An interactive cybersecurity training platform powered by AI that helps users identify and defend against phishing, smishing, and social engineering attacks through realistic simulations.
+
+
+
+## Quick Start![Python](https://img.shields.io/badge/python-3.10+-blue.svg)
+
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.104-green.svg)
-![Streamlit](https://img.shields.io/badge/Streamlit-1.51-red.svg)
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
+
+```bash![Streamlit](https://img.shields.io/badge/Streamlit-1.51-red.svg)
+
+# Install dependencies![License](https://img.shields.io/badge/license-MIT-blue.svg)
+
+pip install -r requirements.txt
 
 ## ✨ Features
 
-- 🎯 **Interactive Email & SMS Simulations** - Realistic phishing and smishing scenarios
-- 🤖 **AI-Powered Scenario Generation** - Groq Llama 3.3 70B creates unique scenarios
+# Setup environment
+
+cp .env.example .env- 🎯 **Interactive Email & SMS Simulations** - Realistic phishing and smishing scenarios
+
+# Add your GROQ_API_KEY to .env- 🤖 **AI-Powered Scenario Generation** - Groq Llama 3.3 70B creates unique scenarios
+
 - 🧠 **RAG System** - Knowledge base integration for contextual AI responses
-- 📊 **Progress Tracking** - Skill ratings, accuracy metrics, and detailed statistics
-- 💬 **Digital Guardian** - AI assistant for cybersecurity questions
+
+# Run database migrations- 📊 **Progress Tracking** - Skill ratings, accuracy metrics, and detailed statistics
+
+alembic upgrade head- 💬 **Digital Guardian** - AI assistant for cybersecurity questions
+
 - 🎨 **Modern UI** - Professional Streamlit interface with dark theme
 
-## 🚀 Quick Start
+# Start backend
 
-### Prerequisites
-- Python 3.10+
-- PostgreSQL
+uvicorn app.main:app --reload &## 🚀 Quick Start
+
+
+
+# Start application### Prerequisites
+
+streamlit run app.py- Python 3.10+
+
+```- PostgreSQL
+
 - Groq API Key ([Get free key](https://console.groq.com))
+
+Access at: **http://localhost:8501**
 
 ### Installation
 
+## Features
+
 ```bash
-# Clone repository
-git clone https://github.com/bhaskardatta/SocialProof.git
-cd SocialProof
 
-# Install dependencies
-pip install -r requirements.txt
+- Interactive training scenarios# Clone repository
 
-# Setup database
+- AI-generated unique threatsgit clone https://github.com/bhaskardatta/SocialProof.git
+
+- Real-time feedbackcd SocialProof
+
+- AI assistant for questions
+
+- Progress tracking# Install dependencies
+
+- 5 difficulty levelspip install -r requirements.txt
+
+
+
+## Tech Stack# Setup database
+
 createdb socialproof
+
+FastAPI • PostgreSQL • Streamlit • Groq AI • LangChain
 
 # Configure environment
 cp .env.example .env

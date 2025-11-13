@@ -139,8 +139,7 @@ class ScenarioGenerateRequest(BaseModel):
         description="Type of scenario to generate (e.g., 'phishing', 'smishing')",
     )
     difficulty: str = Field(
-        default="medium",
-        description="Difficulty level: easy, medium, or hard"
+        default="medium", description="Difficulty level: easy, medium, or hard"
     )
 
 
@@ -212,9 +211,13 @@ class AIProviderInfo(BaseModel):
 
     provider: str = Field(..., description="Currently active LLM provider")
     status: str = Field(..., description="Provider status (active/error)")
-    model_class: Optional[str] = Field(default=None, description="LangChain model class in use")
+    model_class: Optional[str] = Field(
+        default=None, description="LangChain model class in use"
+    )
     rag_initialized: bool = Field(..., description="Whether RAG pipeline is ready")
-    error: Optional[str] = Field(default=None, description="Error message if status is error")
+    error: Optional[str] = Field(
+        default=None, description="Error message if status is error"
+    )
 
 
 # ============================================================================

@@ -20,10 +20,8 @@ from langchain_community.chat_models import ChatOpenRouter
 from langchain_community.document_loaders import DirectoryLoader, TextLoader
 from langchain_community.vectorstores import Chroma
 from langchain_core.language_models.chat_models import BaseChatModel
-from langchain_core.prompts import ChatPromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI, GoogleGenerativeAIEmbeddings
 from langchain_groq import ChatGroq
-from langchain_community.embeddings import HuggingFaceEmbeddings
 
 # ============================================================================
 # INITIALIZATION & CONFIGURATION
