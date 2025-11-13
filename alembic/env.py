@@ -1,24 +1,32 @@
 from logging.config import fileConfig
+import os
 
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
+from sqlalchemy.ext.asyncio import AsyncEngine
 
 from alembic import context
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
 config = context.config
+
+# Override sqlalchemy.url with DATABASE_URL from environment if available
+if os.getenv("DATABASE_URL"):
+    config.set_main_option("sqlalchemy.url", os.getenv("DATABASE_URL"))
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
-# add your model's MetaData object here
-# for 'autogenerate' support
-# from myapp import mymodel
-# target_metadata = mymodel.Base.metadata
-target_metadata = None
+# Import models to support autogenerate
+from app.models import Base
+target_metadata = Base.metadata
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
@@ -62,6 +70,12 @@ def run_migrations_online() -> None:
         prefix="sqlalchemy.",
         poolclass=pool.NullPool,
     )
+
+    # If an AsyncEngine was created (e.g. URL uses +asyncpg), Alembic's
+    # synchronous migration runner can't call async connectables. Use the
+    # engine's sync counterpart so migrations run normally.
+    if isinstance(connectable, AsyncEngine):
+        connectable = connectable.sync_engine
 
     with connectable.connect() as connection:
         context.configure(
