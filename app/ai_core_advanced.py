@@ -25,36 +25,56 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 KNOWLEDGE_BASE_PATH = Path(__file__).parent.parent / "knowledge_base"
 KNOWLEDGE_BASE = {"phishing": "", "smishing": "", "social_engineering": ""}
 
-# Scenario categories for variety
+# Scenario categories for variety - INDIA SPECIFIC
 SCENARIO_CATEGORIES = {
     "email": [
-        "banking_alert",
-        "package_delivery",
-        "tax_notice",
-        "prize_winner",
-        "account_verification",
-        "password_reset",
-        "invoice_payment",
-        "it_support",
-        "executive_request",
-        "charity_donation",
-        "job_offer",
-        "refund_notification",
-        "subscription_renewal",
+        "sbi_banking_alert",
+        "hdfc_kyc_update",
+        "icici_account_verification",
+        "axis_bank_security",
+        "blue_dart_delivery",
+        "delhivery_package",
+        "india_post_courier",
+        "income_tax_notice",
+        "gst_verification",
+        "aadhaar_kyc_update",
+        "pan_card_verification",
+        "upi_refund_pending",
+        "paytm_account_issue",
+        "phonepe_payment_failed",
+        "gpay_verification",
+        "flipkart_prize_winner",
+        "amazon_india_refund",
+        "swiggy_order_issue",
+        "zomato_delivery",
+        "irctc_booking_confirm",
+        "lic_policy_renewal",
+        "epfo_pf_update",
+        "mtnl_bsnl_bill",
+        "reliance_jio_offer",
+        "airtel_bill_due",
     ],
     "sms": [
-        "delivery_update",
-        "bank_alert",
-        "verification_code",
-        "prize_claim",
-        "payment_due",
-        "account_locked",
-        "family_emergency",
-        "job_opportunity",
-        "package_held",
-        "refund_pending",
-        "subscription_confirm",
-        "tax_refund",
+        "upi_payment_failed",
+        "bank_account_blocked",
+        "aadhaar_expiry_alert",
+        "pan_card_deactivate",
+        "courier_delivery_fee",
+        "otp_verification_scam",
+        "lottery_winner_india",
+        "electricity_bill_due",
+        "gas_subsidy_claim",
+        "income_tax_refund",
+        "covid_vaccine_slot",
+        "passport_appointment",
+        "driving_license_renewal",
+        "voter_id_update",
+        "ration_card_kyc",
+        "paytm_kyc_pending",
+        "phonepe_account_limit",
+        "gpay_cashback_claim",
+        "jio_recharge_offer",
+        "airtel_sim_block",
     ],
 }
 
@@ -208,65 +228,72 @@ def _get_email_system_prompt(category: str, difficulty: str, config: Dict) -> st
 
     context = category_contexts.get(category, "a legitimate organization")
 
-    return f"""You are an expert cybersecurity trainer creating REALISTIC phishing email scenarios for education.
+    return f"""You are creating realistic phishing email scenarios for cybersecurity training.
 
-SCENARIO CONTEXT: Create a phishing email impersonating {context}.
+SCENARIO: Create a phishing email impersonating {context}.
 
 DIFFICULTY: {difficulty.upper()} ({config["description"]})
 
-REQUIREMENTS:
-- Red flags to include: {config["red_flags"]}
-- Grammar errors: {config["grammar_errors"]}
+CRITICAL INSTRUCTION: Return ONLY the email content (From, Subject, Body). DO NOT include any analysis, red flags, grammar errors, or educational notes in the output. The red flags should exist in the content but not be listed separately.
+
+REQUIREMENTS FOR THE EMAIL CONTENT:
+- Include {config["red_flags"]} suspicious elements naturally in the email
+- Grammar errors: {config["grammar_errors"]}  
 - Urgency level: {config["urgency_level"]}
 - Link subtlety: {config["suspicious_links"]}
 
-CREATIVE VARIETY:
-- Use different sender names, email formats, and writing styles
-- Vary the hook (fear, urgency, curiosity, greed)
-- Change up the call-to-action
-- Make each scenario UNIQUE and REALISTIC
+Use Indian context: Indian banks (SBI, HDFC, ICICI, Axis), Indian services (UPI, Paytm, PhonePe), Indian cities, rupee amounts (₹), +91 phone numbers, .in domains.
 
-Format as actual email with From, Subject, and Body."""
+Make it REALISTIC - something an Indian person would actually receive.
+
+OUTPUT FORMAT (ONLY THIS, NOTHING ELSE):
+From: [sender name and email]
+Subject: [subject line]
+
+[Email body text]"""
 
 
 def _get_sms_system_prompt(category: str, difficulty: str, config: Dict) -> str:
-    """Generate varied SMS system prompts"""
+    """Generate SMS prompts - INDIA SPECIFIC"""
     category_contexts = {
-        "delivery_update": "FedEx, UPS, USPS, or Amazon delivery",
-        "bank_alert": "Bank of America, Chase, Wells Fargo, or credit union",
-        "verification_code": "Google, Apple, Microsoft, or PayPal verification",
-        "prize_claim": "lottery, sweepstakes, or contest winnings",
-        "payment_due": "utility company, credit card, or subscription",
-        "account_locked": "bank, email provider, or online service",
-        "family_emergency": "family member in trouble needing money",
-        "job_opportunity": "recruiter or hiring manager",
-        "package_held": "customs or delivery service",
-        "refund_pending": "IRS, retailer, or insurance company",
-        "subscription_confirm": "Netflix, Spotify, or other subscription",
-        "tax_refund": "IRS or tax refund service",
+        "upi_payment_failed": "UPI payment failure",
+        "bank_account_blocked": "Indian bank account alert",
+        "aadhaar_expiry_alert": "Aadhaar update notification",
+        "pan_card_deactivate": "PAN card alert",
+        "courier_delivery_fee": "courier delivery notification",
+        "otp_verification_scam": "OTP verification message",
+        "lottery_winner_india": "lottery/KBC winner alert",
+        "electricity_bill_due": "electricity bill payment",
+        "gas_subsidy_claim": "LPG subsidy notification",
+        "income_tax_refund": "tax refund alert",
+        "paytm_kyc_pending": "Paytm KYC alert",
+        "phonepe_account_limit": "PhonePe notification",
+        "gpay_cashback_claim": "Google Pay offer",
+        "jio_recharge_offer": "Jio recharge offer",
+        "airtel_sim_block": "Airtel SIM alert",
     }
 
-    context = category_contexts.get(category, "a legitimate service")
+    context = category_contexts.get(category, "a service notification")
 
-    return f"""Create a realistic SMISHING (SMS phishing) message for education.
+    return f"""Create a realistic SMS phishing message targeting Indian users.
 
-SCENARIO: {context} notification
+SCENARIO: {context}
 
 DIFFICULTY: {difficulty.upper()} ({config["description"]})
 
-REQUIREMENTS:
-- Red flags: {config["red_flags"]}
+CRITICAL INSTRUCTION: Return ONLY the SMS text message. DO NOT include any analysis, red flags list, or educational notes.
+
+REQUIREMENTS FOR THE SMS:
+- Red flags: {config["red_flags"]} (built into the message, not listed)
 - Urgency: {config["urgency_level"]}
 - Link type: {config["suspicious_links"]}
-- Keep SMS format (short, under 160 chars for basic, up to 300 for complex)
 
-VARIETY ELEMENTS:
-- Different phone number formats
-- Various URL shorteners or suspicious domains
-- Diverse messaging styles
-- Unique scenarios each time
+Use Indian context: +91 numbers, Indian banks, UPI, Aadhaar, PAN, Indian companies, rupees (Rs./₹), Indian sender IDs.
 
-Format as SMS text message."""
+Keep it short (typical SMS length). Make it realistic to what Indians receive.
+
+OUTPUT FORMAT (ONLY THE SMS TEXT, NOTHING ELSE):
+[SMS message text]"""
 
 
 def _get_human_prompt(
@@ -274,8 +301,8 @@ def _get_human_prompt(
 ) -> str:
     """Generate human prompt for variety"""
     templates = [
-        f"Create a {difficulty} difficulty {category} {scenario_type} phishing scenario. Make it unique and educational.",
-        f"Generate a realistic {category} {scenario_type} scam at {difficulty} level. Focus on making it believable but detectable.",
+        f"Create a {difficulty} difficulty {category} {scenario_type} phishing scenario targeting Indian users.",
+        f"Generate a realistic {category} {scenario_type} scam at {difficulty} level for Indian audience.",
         f"Design a {difficulty} level phishing {scenario_type} for {category}. Include exactly {config['red_flags']} red flags.",
         f"Craft a {category} themed {scenario_type} phishing attack ({difficulty} difficulty). Make it different from typical examples.",
     ]

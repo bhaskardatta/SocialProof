@@ -178,7 +178,7 @@ class DigitalGuardianQuery(BaseModel):
     query: str = Field(
         ...,
         min_length=5,
-        max_length=500,
+        max_length=3000,
         description="User's cybersecurity question",
         examples=["What is phishing?", "How can I identify a smishing attack?"],
     )
